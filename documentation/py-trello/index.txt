@@ -1,0 +1,556 @@
+Welcome to py-trello's documentation!
+*************************************
+
+
+Modules
+*******
+
+* trello package
+
+  * Submodules
+
+  * trello.attachments module
+
+    * "Attachments"
+
+      * "Attachments.from_json()"
+
+    * "AttachmentsPreview"
+
+      * "AttachmentsPreview.from_json()"
+
+  * trello.base module
+
+    * "TrelloBase"
+
+  * trello.board module
+
+    * "Board"
+
+      * "Board.add_custom_field_definition()"
+
+      * "Board.add_custom_field_list_option()"
+
+      * "Board.add_label()"
+
+      * "Board.add_list()"
+
+      * "Board.add_member()"
+
+      * "Board.admin_members()"
+
+      * "Board.all_cards()"
+
+      * "Board.all_lists()"
+
+      * "Board.all_members()"
+
+      * "Board.close()"
+
+      * "Board.closed_cards()"
+
+      * "Board.closed_lists()"
+
+      * "Board.date_last_activity"
+
+      * "Board.delete()"
+
+      * "Board.delete_custom_field_definition()"
+
+      * "Board.delete_custom_field_list_option()"
+
+      * "Board.delete_label()"
+
+      * "Board.disable_power_up()"
+
+      * "Board.enable_power_up()"
+
+      * "Board.fetch()"
+
+      * "Board.fetch_actions()"
+
+      * "Board.from_json()"
+
+      * "Board.get_card()"
+
+      * "Board.get_cards()"
+
+      * "Board.get_checklists()"
+
+      * "Board.get_custom_field_definitions()"
+
+      * "Board.get_custom_field_list_option()"
+
+      * "Board.get_custom_field_list_options()"
+
+      * "Board.get_enabled_power_ups()"
+
+      * "Board.get_label()"
+
+      * "Board.get_labels()"
+
+      * "Board.get_last_activity()"
+
+      * "Board.get_list()"
+
+      * "Board.get_lists()"
+
+      * "Board.get_members()"
+
+      * "Board.get_power_ups()"
+
+      * "Board.list_lists()"
+
+      * "Board.normal_members()"
+
+      * "Board.open()"
+
+      * "Board.open_cards()"
+
+      * "Board.open_lists()"
+
+      * "Board.owner_members()"
+
+      * "Board.remove_member()"
+
+      * "Board.save()"
+
+      * "Board.set_description()"
+
+      * "Board.set_name()"
+
+      * "Board.set_organization()"
+
+      * "Board.update_custom_field_definition()"
+
+      * "Board.visible_cards()"
+
+  * trello.card module
+
+    * "Card"
+
+      * "Card.add_checklist()"
+
+      * "Card.add_label()"
+
+      * "Card.add_member()"
+
+      * "Card.assign()"
+
+      * "Card.attach()"
+
+      * "Card.attachments"
+
+      * "Card.attriExp()"
+
+      * "Card.board_id"
+
+      * "Card.card_created_date"
+
+      * "Card.change_board()"
+
+      * "Card.change_list()"
+
+      * "Card.change_pos()"
+
+      * "Card.checklists"
+
+      * "Card.comment()"
+
+      * "Card.comments"
+
+      * "Card.create_label()"
+
+      * "Card.created_date"
+
+      * "Card.custom_fields"
+
+      * "Card.date_last_activity"
+
+      * "Card.delete()"
+
+      * "Card.delete_comment()"
+
+      * "Card.description"
+
+      * "Card.due_date"
+
+      * "Card.fetch()"
+
+      * "Card.fetch_actions()"
+
+      * "Card.fetch_attachments()"
+
+      * "Card.fetch_checklists()"
+
+      * "Card.fetch_comments()"
+
+      * "Card.fetch_custom_fields()"
+
+      * "Card.fetch_plugin_data()"
+
+      * "Card.from_json()"
+
+      * "Card.get_attachments()"
+
+      * "Card.get_comments()"
+
+      * "Card.get_custom_field_by_name()"
+
+      * "Card.get_list()"
+
+      * "Card.get_stats_by_list()"
+
+      * "Card.labels"
+
+      * "Card.latestCardMove_date"
+
+      * "Card.listCardMove_date()"
+
+      * "Card.list_id"
+
+      * "Card.list_movements()"
+
+      * "Card.member_id"
+
+      * "Card.plugin_data"
+
+      * "Card.remove_attachment()"
+
+      * "Card.remove_due()"
+
+      * "Card.remove_due_complete()"
+
+      * "Card.remove_label()"
+
+      * "Card.remove_member()"
+
+      * "Card.set_closed()"
+
+      * "Card.set_custom_field()"
+
+      * "Card.set_description()"
+
+      * "Card.set_due()"
+
+      * "Card.set_due_complete()"
+
+      * "Card.set_name()"
+
+      * "Card.set_pos()"
+
+      * "Card.set_reminder()"
+
+      * "Card.set_start()"
+
+      * "Card.short_id"
+
+      * "Card.short_url"
+
+      * "Card.subscribe()"
+
+      * "Card.unassign()"
+
+      * "Card.update_comment()"
+
+  * trello.checklist module
+
+    * "Checklist"
+
+      * "Checklist.add_checklist_item()"
+
+      * "Checklist.clear()"
+
+      * "Checklist.delete()"
+
+      * "Checklist.delete_checklist_item()"
+
+      * "Checklist.rename()"
+
+      * "Checklist.rename_checklist_item()"
+
+      * "Checklist.set_checklist_item()"
+
+      * "Checklist.set_checklist_item_due()"
+
+      * "Checklist.set_checklist_item_member()"
+
+  * trello.compat module
+
+    * "force_str()"
+
+  * trello.exceptions module
+
+    * "ResourceUnavailable"
+
+    * "TokenError"
+
+    * "Unauthorized"
+
+  * trello.label module
+
+    * "Label"
+
+      * "Label.fetch()"
+
+      * "Label.from_json()"
+
+      * "Label.from_json_list()"
+
+  * trello.member module
+
+    * "Member"
+
+      * "Member.fetch()"
+
+      * "Member.fetch_cards()"
+
+      * "Member.fetch_comments()"
+
+      * "Member.fetch_notifications()"
+
+      * "Member.from_json()"
+
+      * "Member.get_boards()"
+
+  * trello.organization module
+
+    * "Organization"
+
+      * "Organization.TIMEZONE"
+
+      * "Organization.add_member()"
+
+      * "Organization.all_boards()"
+
+      * "Organization.fetch()"
+
+      * "Organization.from_json()"
+
+      * "Organization.get_board()"
+
+      * "Organization.get_boards()"
+
+      * "Organization.get_members()"
+
+      * "Organization.remove_member()"
+
+  * trello.trelloclient module
+
+    * "TrelloClient"
+
+      * "TrelloClient.add_board()"
+
+      * "TrelloClient.add_organization()"
+
+      * "TrelloClient.add_star()"
+
+      * "TrelloClient.create_hook()"
+
+      * "TrelloClient.delete_star()"
+
+      * "TrelloClient.fetch_json()"
+
+      * "TrelloClient.get_board()"
+
+      * "TrelloClient.get_card()"
+
+      * "TrelloClient.get_label()"
+
+      * "TrelloClient.get_list()"
+
+      * "TrelloClient.get_member()"
+
+      * "TrelloClient.get_organization()"
+
+      * "TrelloClient.info_for_all_boards()"
+
+      * "TrelloClient.list_boards()"
+
+      * "TrelloClient.list_hooks()"
+
+      * "TrelloClient.list_organizations()"
+
+      * "TrelloClient.list_stars()"
+
+      * "TrelloClient.logout()"
+
+      * "TrelloClient.search()"
+
+  * trello.trellolist module
+
+    * "List"
+
+      * "List.add_card()"
+
+      * "List.archive_all_cards()"
+
+      * "List.cardsCnt()"
+
+      * "List.close()"
+
+      * "List.fetch()"
+
+      * "List.fetch_actions()"
+
+      * "List.from_json()"
+
+      * "List.list_cards()"
+
+      * "List.list_cards_iter()"
+
+      * "List.move()"
+
+      * "List.move_all_cards()"
+
+      * "List.move_to_board()"
+
+      * "List.open()"
+
+      * "List.set_name()"
+
+      * "List.set_pos()"
+
+      * "List.subscribe()"
+
+      * "List.unsubscribe()"
+
+  * trello.util module
+
+    * "create_oauth_token()"
+
+    * "generate_user_agent()"
+
+  * trello.webhook module
+
+    * "WebHook"
+
+      * "WebHook.delete()"
+
+  * Module contents
+
+
+Readme
+******
+
+A wrapper around the Trello API written in Python. Each Trello object
+is represented by a corresponding Python object. The attributes of
+these objects are cached, but the child objects are not. This can
+possibly be improved when the API allows for notification
+subscriptions; this would allow caching (assuming a connection was
+available to invalidate the cache as appropriate).
+
+I've created a Trello Board for feature requests, discussion and some
+development tracking.
+
+
+Install
+*******
+
+   pip install py-trello
+
+
+Usage
+*****
+
+   from trello import TrelloClient
+
+   client = TrelloClient(
+       api_key='your-key',
+       api_secret='your-secret',
+       token='your-oauth-token-key',
+       token_secret='your-oauth-token-secret'
+   )
+
+Where "token" and "token_secret" come from the 3-legged OAuth process
+and "api_key" and "api_secret" are your Trello API credentials that
+are (generated here).
+
+To use without 3-legged OAuth, use only "api_key" and "api_secret" on
+client.
+
+
+Working with boards
+===================
+
+   all_boards = client.list_boards()
+   last_board = all_boards[-1]
+   print(last_board.name)
+
+
+working with board lists and cards
+==================================
+
+   all_boards = client.list_boards()
+   last_board = all_boards[-1]
+   last_board.list_lists()
+   my_list = last_board.get_list(list_id)
+
+   for card in my_list.list_cards():
+       print(card.name)
+
+
+Getting your Trello OAuth Token
+*******************************
+
+Make sure the following environment variables are set:
+
+* "TRELLO_API_KEY"
+
+* "TRELLO_API_SECRET"
+
+These are obtained from the link mentioned above.
+
+"TRELLO_EXPIRATION" is optional. Set it to a string such as 'never' or
+'1day'. Trello's default OAuth Token expiration is 30 days.
+
+Default permissions are read/write.
+
+More info on setting the expiration here:
+https://trello.com/docs/gettingstarted/#getting-a-token-from-a-user
+
+Run
+
+   python -m trello oauth
+
+
+Required Python modules
+***********************
+
+Found in "requirements.txt"
+
+
+Tests
+*****
+
+To run the tests, run "python -m unittest discover". Four environment
+variables must be set:
+
+* "TRELLO_API_KEY": your Trello API key
+
+* "TRELLO_TOKEN": your Trello OAuth token
+
+* "TRELLO_TEST_BOARD_COUNT": the number of boards in your Trello
+  account
+
+* "TRELLO_TEST_BOARD_NAME": name of the board to test card
+  manipulation on. Must be unique, or the first match will be used
+
+* "TRELLO_TEST_STAR_COUNT": the number of stars on your test Trello
+  board
+
+*WARNING*: The tests will delete all cards on the board called
+*TRELLO_TEST_BOARD_NAME*!
+
+To run tests across various Python versions, tox is supported. Install
+it and simply run "tox" from the "py-trello" directory.
+
+
+Indices and tables
+******************
+
+* Index
+
+* Module Index
+
+* Search Page
