@@ -24,57 +24,63 @@ from smolagents import (
     Tool,
 )
 
-# Configure tools with proper names and docstrings
-class NamedDuckDuckGoSearchTool(DuckDuckGoSearchTool):
-    """A tool for performing web searches using DuckDuckGo.
-    
-    Parameters:
-        query (str): The search query to execute
-        
+import re
+import requests
+from markdownify import markdownify as md
+from requests.exceptions import RequestException
+from smolagents import tool
+
+model_id = "Qwen/Qwen2.5-72B-Instruct"
+
+
+@tool
+def visit_webpage(url: str) -> str:
+    """Visits a webpage at the given URL and returns its content as a markdown string.
+
+    Args:
+        url: The URL of the webpage to visit.
+
     Returns:
-        str: The search results from DuckDuckGo
+        The content of the webpage converted to Markdown, or an error message if the request fails.
     """
-    __name__ = "DuckDuckGoSearchTool"
+    try:
+        # Send a GET request to the URL
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
 
-class NamedVisitWebpageTool(VisitWebpageTool):
-    """A tool for visiting and extracting content from web pages.
+        # Convert the HTML content to Markdown
+        markdown_content = md(response.text).strip()
+
+        # Remove multiple line breaks
+        markdown_content = re.sub(r"\n{3,}", "\n\n", markdown_content)
+
+        return markdown_content
+
+    except RequestException as e:
+        return f"Error fetching the webpage: {str(e)}"
+    except Exception as e:
+        return f"An unexpected error occurred: {str(e)}"
     
-    Parameters:
-        url (str): The URL to visit and extract content from
-        
-    Returns:
-        str: The extracted content from the webpage
-    """
-    __name__ = "VisitWebpageTool"
+from smolagents import CodeAgent, ToolCallingAgent, HfApiModel, ManagedAgent, DuckDuckGoSearchTool
 
-# Initialize model
-model = HfApiModel()
+model = HfApiModel(model_id)
 
-# Create a wrapper function to handle type conversion
-def convert_to_str(value):
-    if isinstance(value, dict):
-        return str(value)
-    return value
-
-agent = ToolCallingAgent(
-    tools=[NamedDuckDuckGoSearchTool(), NamedVisitWebpageTool()],
+web_agent = ToolCallingAgent(
+    tools=[DuckDuckGoSearchTool(), visit_webpage],
     model=model,
 )
-managed_agent = ManagedAgent(
-    agent=agent,
-    name="managed_agent",
-    description="This is an agent that can do web search.",
+
+managed_web_agent = ManagedAgent(
+    agent=web_agent,
+    name="search_agent",
+    description="Runs web searches for you. Give it your query as an argument.",
 )
+
 manager_agent = CodeAgent(
     tools=[],
     model=model,
-    managed_agents=[managed_agent],
+    managed_agents=[managed_web_agent],
+    additional_authorized_imports=["time", "datetime"],
 )
 
-# Convert input to string and ensure proper type handling
-query = "If the US keeps its 2024 growth rate, how many years will it take for the GDP to double?"
-try:
-    result = manager_agent.run(query)
-    print(f"Result: {convert_to_str(result)}")
-except Exception as e:
-    print(f"Error: {str(e)}")
+manager_agent.run("How many years ago was Stripe founded?")
