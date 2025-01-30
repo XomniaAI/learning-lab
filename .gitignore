@@ -22,7 +22,6 @@ build/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb
 
 # UV
 .uv/
