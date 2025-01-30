@@ -11,15 +11,18 @@ client = TrelloClient(
     token=os.getenv('TRELLO_TOKEN')
 )
 
+# this line is to pin the agent to this specific development ennvironment (workspace in Trello)
+organization = [org for org in client.list_organizations() if org.name == 'devgenai'][0]
+
 @tool
 def list_boards() -> str:
-    """Get a list of all accessible Trello boards. This function should be called first to get the board ID
+    """Get a list of all accessible Trello boards within the devgenai organization. This function should be called first to get the board ID
     before using select_board().
     
     Returns:
         str: A JSON string containing board details including id, name, and description.
     """
-    boards = client.list_boards()
+    boards = organization.all_boards()
     board_list = [{
         'id': b.id,
         'name': b.name,
