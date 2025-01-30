@@ -28,8 +28,7 @@ cp .env.example .env
 
 Required environment variables:
 - `TRELLO_API_KEY` & `TRELLO_TOKEN`: Create at [Trello Power-Ups Admin](https://trello.com/power-ups/admin)
-- `TRELLO_BOARD_ID`: ID of your default Trello board
-- `HUGGINGFACE_TOKEN`: Create at [HuggingFace Settings](https://huggingface.co/settings/tokens)
+- `HF_TOKEN`: Create at [HuggingFace Settings] (https://huggingface.co/settings/tokens) with inference permissions
 
 3. Install dependencies and run:
 ```bash
