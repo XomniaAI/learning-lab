@@ -10,7 +10,7 @@ client = TrelloClient(
     api_key=os.getenv('TRELLO_API_KEY'),
     token=os.getenv('TRELLO_TOKEN')
 )
-board = client.get_board(os.getenv('TRELLO_BOARD_ID'))
+#board = client.get_board(os.getenv('TRELLO_BOARD_ID'))
 
 @tool
 def list_boards() -> str:
