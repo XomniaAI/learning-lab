@@ -35,7 +35,7 @@ cp .env.example .env
 
 Required environment variables:
 - `TRELLO_API_KEY` & `TRELLO_TOKEN`: If you can access [Trello](https://trello.com/w/xomnia3) you will get these during the training (you'll get a link to make your personal TRELLO_TOKEN with our shared TRELLO_API_KEY: https://trello.com/1/authorize?expiration=1day&scope=read,write&response_type=token&key={TRELLO_API_KEY})
-- `HF_TOKEN`: Create at [HuggingFace Settings] (https://huggingface.co/settings/tokens) with inference permissions
+- `HF_TOKEN`: Create at [HuggingFace Settings](https://huggingface.co/settings/tokens) with inference permissions
 
 3. Install dependencies and run:
 ```bash
