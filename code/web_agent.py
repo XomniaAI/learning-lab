@@ -1,18 +1,25 @@
 # !uv add smolagents py-trello python-dotenv arize-phoenix opentelemetry-sdk opentelemetry-exporter-otlp openinference-instrumentation-smolagents
 
+"""
+This is a test with another agent and an LLMOps tool for tracing it's steps. Run `uv sync --extra dev` to install the dependencies and `make tracing` to start the tracing server.
+"""
+
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
 from openinference.instrumentation.smolagents import SmolagentsInstrumentor
+from openinference.instrumentation.openai import OpenAIInstrumentor
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
+
 
 endpoint = "http://0.0.0.0:6006/v1/traces"
 trace_provider = TracerProvider()
 trace_provider.add_span_processor(SimpleSpanProcessor(OTLPSpanExporter(endpoint)))
 
 SmolagentsInstrumentor().instrument(tracer_provider=trace_provider)
+OpenAIInstrumentor().instrument(tracer_provider=trace_provider)
 
 from smolagents import (
     CodeAgent,
@@ -63,6 +70,7 @@ def visit_webpage(url: str) -> str:
     
 from smolagents import CodeAgent, ToolCallingAgent, HfApiModel, ManagedAgent, DuckDuckGoSearchTool
 
+model = HfApiModel(model_id)
 model = HfApiModel(model_id)
 
 web_agent = ToolCallingAgent(

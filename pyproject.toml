@@ -3,13 +3,19 @@ name = "learning-lab"
 version = "0.1.0"
 description = "Example implementations of Trello-based tool-calling agents"
 authors = []
+requires-python = ">=3.10"
 dependencies = [
-    "arize-phoenix>=7.9.2",
     "ipykernel>=6.29.5",
-    "openinference-instrumentation-smolagents>=0.1.1",
-    "opentelemetry-exporter-otlp>=1.29.0",
-    "opentelemetry-sdk>=1.29.0",
     "py-trello>=0.20.1",
     "python-dotenv>=1.0.1",
     "smolagents>=1.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "arize-phoenix>=7.9.2",
+    "openinference-instrumentation-smolagents>=0.1.1",
+    "opentelemetry-exporter-otlp>=1.29.0",
+    "opentelemetry-sdk>=1.29.0",
+    "openinference-instrumentation-openai>=0.1.18",
 ]
