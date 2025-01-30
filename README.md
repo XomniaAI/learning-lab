@@ -16,6 +16,13 @@ A simple agent that can interact with your Trello boards using natural language.
 
 ## Setup
 
+### Prerequisites
+- Python 3.10+
+- Trello account
+- HuggingFace account
+
+### Installation
+
 1. Install `uv` (Python package manager):
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
